@@ -146,6 +146,9 @@ collisions. To represent all integers in the range $[1, 2^{31}-1]$ in our
 
 $$L=7\text{ because }32^{7}=2^{35}>2^{31}-1$$
 
+So, while random IDs require 15+ characters to avoid collisions, deterministic
+integer-based IDs need only 7 characters to represent the same number of records.
+
 ## References
 
 1. https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/
