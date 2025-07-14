@@ -144,7 +144,7 @@ integers (e.g., PostgreSQL SERIAL or BIGSERIAL), we don't need to worry about
 collisions. To represent all integers in the range $[1, 2^{31}-1]$ in our
 32-character alphabet, we only need:
 
-$$L=7$$ because $$32^{7}=2^{35}>2^{31}-1$$
+$$L=7\text{because}32^{7}=2^{35}>2^{31}-1$$
 
 ## References
 
