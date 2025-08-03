@@ -133,8 +133,8 @@ generate $K=1-^9$ random IDs without significant risk of collisions.
 | 15    | 0.0013% |
 
 
-As shown, to get below a 0.01% collision risk when generating $K={10}^{9}$ IDs, you
-need at least 15 characters. While secure and robust, this length may be
+As shown, to get below a 0.01% collision risk when generating $K={10}^{9}$ IDs,
+you need at least 15 characters. While secure and robust, this length may be
 inconvenient for users who need to type or read these IDs frequently.
 
 ### Tradeoff: Uniqueness vs Brevity
@@ -144,7 +144,10 @@ integers (e.g., PostgreSQL SERIAL or BIGSERIAL), we don't need to worry about
 collisions. To represent all integers in the range $[1, 2^{31}-1]$ in our
 32-character alphabet, we only need:
 
-$$L=7 because 32^{7}=2^{35}>2^{31}-1$$
+$$L=7\text{ because }32^{7}=2^{35}>2^{31}-1$$
+
+So, while random IDs require 15+ characters to avoid collisions, deterministic
+integer-based IDs need only 7 characters to represent the same number of records.
 
 ## References
 
