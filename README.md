@@ -226,6 +226,7 @@ def encrypt(n: int) -> int:
 def decrypt(n: int) -> int:
     return pow(n, D, N)
 
+
 next_id = 23  # example value
 encoded_id = encode(encrypt(next_id))
 decoded_id = decrypt(decode(encoded_id))
