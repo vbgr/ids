@@ -1,8 +1,11 @@
 # ids
 
-This document describes approach for generating an unguessable, unique and
-human friendly resource identifiers.
+This document describes an approach to generating unguessable, unique, and
+human-friendly resource identifiers.
 
+Note: This approach is not meant to secure sensitive data via encryption. It
+only obfuscates ID predictability. For cryptographically secure applications,
+use authenticated encryption and proven protocols.
 
 ## Rationale
 
