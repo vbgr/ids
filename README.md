@@ -1,7 +1,7 @@
 # ids
 
-This document describes approach for generaiting an unguessable, unique and
-human friendly resource dentifiers.
+This document describes approach for generating an unguessable, unique and
+human friendly resource identifiers.
 
 
 ## Rationale
@@ -118,19 +118,19 @@ $$N=32^L$$
 Let’s examine how many characters we need in a 32-symbol alphabet to safely
 generate $K=10^9$ random IDs without significant risk of collisions.
 
-| L     | P       |
-| ----- | ------- |
-| 5     | 100%    |
-| 6     | 100%    |
-| 7     | 100%    |
-| 8     | 100%    |
-| 9     | 100%    |
-| 10    | 100%    |
-| 11    | 99%     |
-| 12    | 35%     |
-| 13    | 1.3%    |
-| 14    | 0.04%   |
-| 15    | 0.0013% |
+| ID length | Estimated Collision Probability for $10^9$ Random IDs |
+| -----     | -------                                               |
+| 5         | 100%                                                  |
+| 6         | 100%                                                  |
+| 7         | 100%                                                  |
+| 8         | 100%                                                  |
+| 9         | 100%                                                  |
+| 10        | 100%                                                  |
+| 11        | 99%                                                   |
+| 12        | 35%                                                   |
+| 13        | 1.3%                                                  |
+| 14        | 0.04%                                                 |
+| 15        | 0.0013%                                               |
 
 
 As shown, to get below a 0.01% collision risk when generating $K=10^9$ IDs,
@@ -149,24 +149,24 @@ $$L=7\text{ because }32^{7}=2^{35}>2^{31}-1$$
 So, while random IDs require 15+ characters to avoid collisions, deterministic
 integer-based IDs need only 7 characters to represent the same number of records.
 
-But how to make sequential IDs non predictable? One of the possible solution is
+But how to make sequential IDs non predictable? One possible solution is
 to get next number from the sequence and encrypt it. Encryption function $e$ by
-it's nature must map $x \in X \rightarrow e(x) \in Y$ so that for the given
+its nature must map $x \in X \rightarrow e(x) \in Y$ so that for the given
 $y=e(x)$ each $x \in X$ must have about equal probability to be a clear text
 for the given encrypted text $y$ (of course without knowing the private key).
 
 ### RSA encryption
 
-Let's explore how RSA encryption can provide pseudo randomization for and
-integer sequence. Let's denote $N$ as the total amount of IDs that is considered
-as enough, $L$ - is the ID length required to encode any ID in range $1..N$ in
+Let's explore how RSA encryption can provide pseudo randomization for an
+integer sequence. Let $N$ be the maximum number of IDs the system will need,
+$L$ - is the ID length required to encode any ID in range $1..N$ in
 an alphabet of $X$ characters. Then, in notations of the [article](https://en.wikipedia.org/wiki/RSA_(cryptosystem)),
 if we chose $n = pq > N \wedge n \le A^L$, then the encryption function will be
 the bijective function $R: 1..n-1 \rightarrow 1..n-1$. The encryption function
 obviously must be bijective in order to be able to decrypt clear text from any
 legal encrypted text.
 
-Let $encode$ will be the function that encodes a number from range $R$ in an
+Let $encode$ be the function that encodes a number from range $R$ in an
 alphabet A. Let $encrypt$ will be the RSA-encryption function, $decode$, $decrypt$
 will be the functions reverse to the functions $encode$, $encrypt$ respectively,
 $next() \rightarrow 1..N$ the function that produces the sequential numbers.
@@ -186,7 +186,7 @@ crucial in order to ensure any number from the given interval $1 .. 2^{31}-1$
 can be encrypted. Then we chose $e$ so that $\gcd(e, \phi(n)) = 1$ and
 calculate $d$ so that $ed \equiv 1 mod \phi(n)$.
 
-The bellow python example shows the full id generation logic.
+The bellow Python example shows the full id generation logic.
 
 ```python
 ALPHABET = "0123456789ABCDEFGHJKMNPQRSUVWXYZ"
@@ -230,13 +230,17 @@ def decrypt(n: int) -> int:
 next_id = 23  # example value
 encoded_id = encode(encrypt(next_id))
 decoded_id = decrypt(decode(encoded_id))
+
+assert decoded_id == next_id
 ```
 
-*Consequence 1.* This approach allows to operate by integer primary keys in
-database and expose in an API pseudo random short IDs by doing encrypt/decrypt
-on the fly.
+#### Consequence: Human-Friendly API Exposure
 
-### Performance
+This approach allows us to use integer primary keys in the database while
+exposing pseudo-random, short, human-friendly IDs via encryption/decryption on
+the fly.
+
+### Performance Considerations
 
 TODO
 
