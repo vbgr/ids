@@ -158,11 +158,9 @@ for the given encrypted text $y$ (of course without knowing the private key).
 ### RSA encryption
 
 Let's explore how RSA encryption can provide pseudo randomization for and
-integer sequence.
-
-Let's denote $N$ as the total amount of IDs that is considered as enough,
-$L$ - is the ID length required to encode any ID in range $1..N$ in an alphabet
-of $X$ characters. Then, in notations of the [article](https://en.wikipedia.org/wiki/RSA_(cryptosystem)),
+integer sequence. Let's denote $N$ as the total amount of IDs that is considered
+as enough, $L$ - is the ID length required to encode any ID in range $1..N$ in
+an alphabet of $X$ characters. Then, in notations of the [article](https://en.wikipedia.org/wiki/RSA_(cryptosystem)),
 if we chose $n = pq > N \wedge n \le X^L$, then the encryption function will be
 the bijective function $R: 1..n-1 \rightarrow 1..n-1$.
 
