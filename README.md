@@ -184,7 +184,46 @@ length, as we have seen above most be $7$.
 Now we chose primes $p$, $q$ so that $n=pq > 2^{31}-1$, the last condition is
 crucial in order to ensure any number from the given interval $1 .. 2^{31}-1$
 can be encrypted. Then we chose $e$ so that $\gcd(e, \phi(n)) = 1$ and
-calculate $d$ so that $ed \equiv 1 mod \phi(n)$
+calculate $d$ so that $ed \equiv 1 mod \phi(n)$.
+
+The bellow python example shows the full encode/decode flow.
+
+```python
+ALPHABET = "0123456789ABCDEFGHJKMNPQRSUVWXYZ"
+CHARSMAP = {c: i for i, c in enumerate(ALPHABET)}
+
+P = 65497  # near 2**16
+Q = 32803  # near 2**15
+N = P * Q
+F = (P - 1) * (Q - 1)  # EulerPhi(N)
+E = 127                # Coprime with EulerPhi(N)
+D = pow(E, -1, F)      # Inverse of E modulo EulerPhi(N)
+
+
+def encode(n: int) -> str:
+    s = [""] * INCLEN
+    for i in range(INCLEN):
+        r = n & 31  # mod 32
+        n = n >> 5  # div 32
+        s[i] = ALPHABET[r]
+    return "".join(s)
+
+
+def decode(s: str) -> int:
+    n = 0
+    for i, c in enumerate(s):
+        d = CHARSMAP[c]
+        n += d << (i * 5)
+    return n
+
+
+def encrypt(n: int) -> int:
+    return pow(n, E, N)
+
+
+def decrypt(n: int) -> int:
+    return pow(n, D, N)
+```
 
 
 ## References
