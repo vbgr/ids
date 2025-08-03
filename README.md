@@ -181,8 +181,9 @@ If we consider a PostgreSQL integer sequence that produces primary keys in range
 $1 .. 2^{31}-1$ and alphabet of 32 symbols defined above, then the required ID
 length, as we have seen above most be $7$.
 
-Now we chose primes $p$, $q$ so that $n=pq > 2^{31}-1$. Then we chose $e$ so
-that $\gcd(e, n) = 1$.
+Now we chose primes $p$, $q$ so that $n=pq > 2^{31}-1$, the last condition is
+crucial in order to ensure any number from the given interval $1 .. 2^{31}-1$
+can be encrypted. Then we chose $e$ so that $\gcd(e, n) = 1$.
 
 
 ## References
