@@ -155,6 +155,13 @@ it's nature must map $x \in X \rightarrow e(x) \in Y$ so that for the given
 $y=e(x)$ each $x \in X$ must have about equal probability to be a clear text
 for the given encrypted text $y$ (of course without knowing the private key).
 
+### RSA encryption
+
+Let's explore how RSA encryption can provide pseudo randomization for and
+integer sequence.
+
+
+
 ## References
 
 1. https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/
