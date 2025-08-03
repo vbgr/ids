@@ -107,7 +107,7 @@ avoid visually confusing characters (e.g., O, 0, I, l, 1, J). A widely accepted
 human-friendly alphabet is:
 
 $$
-\text{0123456789ABCDEFGHKMNPQRSTUVWXYZ} \label{1}
+\text{0123456789ABCDEFGHKMNPQRSTUVWXYZ
 $$
 
 This gives us 32 symbols. If we choose an ID length of $L$ characters, the
@@ -178,7 +178,9 @@ to be calculated: $decrypt(decode(id))$.
 
 ### Implementation
 
-If we consider a PostgreSQL integer sequence that produces primary keys, 
+If we consider a PostgreSQL integer sequence that produces primary keys in range
+$1 .. 2^31-1$ and alphabet of 32 symbols defined above, then the required ID
+length, as we have seen above most be $7$.
 
 
 ## References
