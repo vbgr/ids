@@ -186,11 +186,13 @@ crucial in order to ensure any number from the given interval $1 .. 2^{31}-1$
 can be encrypted. Then we chose $e$ so that $\gcd(e, \phi(n)) = 1$ and
 calculate $d$ so that $ed \equiv 1 mod \phi(n)$.
 
-The bellow python example shows the full encode/decode flow.
+The bellow python example shows the full id generation logic.
 
 ```python
 ALPHABET = "0123456789ABCDEFGHJKMNPQRSUVWXYZ"
 CHARSMAP = {c: i for i, c in enumerate(ALPHABET)}
+
+L = 7      # ID length
 
 P = 65497  # near 2**16
 Q = 32803  # near 2**15
@@ -201,8 +203,8 @@ D = pow(E, -1, F)      # Inverse of E modulo EulerPhi(N)
 
 
 def encode(n: int) -> str:
-    s = [""] * INCLEN
-    for i in range(INCLEN):
+    s = [""] * L
+    for i in range(L):
         r = n & 31  # mod 32
         n = n >> 5  # div 32
         s[i] = ALPHABET[r]
@@ -223,7 +225,13 @@ def encrypt(n: int) -> int:
 
 def decrypt(n: int) -> int:
     return pow(n, D, N)
+
+next_id = 23  # example value
+encoded_id = encode(encrypt(next_id))
+decoded_id = decrypt(decode(encoded_id))
 ```
+
+NOTE: for 
 
 
 ## References
