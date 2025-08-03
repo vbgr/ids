@@ -149,6 +149,11 @@ $$L=7\text{ because }32^{7}=2^{35}>2^{31}-1$$
 So, while random IDs require 15+ characters to avoid collisions, deterministic
 integer-based IDs need only 7 characters to represent the same number of records.
 
+But how to make sequential IDs non predictable? One of the possible solution is
+to get next number from the sequence and encrypt it. Encryption function $e$ by
+it's nature must map $x \in X \rightarrow e(x) \in Y$ so that for the given
+$y=e(x)$ 
+
 ## References
 
 1. https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/
