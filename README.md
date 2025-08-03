@@ -258,7 +258,23 @@ If the 2 last commands provide same numbers then there are no duplicates.
 
 ### Performance Considerations
 
-TODO
+The script [perf.py](./perf.py) mesures performance difference of UUID4
+generation versus the approach proposed.
+
+On Apple M3 Pro it provides the following result:
+
+```bash
+1000000 uuids generated in 0:00:01.131016
+1000000 rsa ids generated in 0:00:01.191094
+1000000 rsa ids generated in 0:00:01.577521
+1000000 rsa ids generated in 0:00:03.178716
+1000000 rsa ids generated in 0:00:03.251230
+```
+
+The speed of IDs generation depends on the value of the parameter $e$ the
+smaller it is the faster IDs generation happens. According to the result on a
+not so high values it takes same time as UUID4 generation, on the high values
+it takes 3 times more time to generate an ID.
 
 
 ## References
