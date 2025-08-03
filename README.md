@@ -107,7 +107,7 @@ avoid visually confusing characters (e.g., O, 0, I, l, 1, J). A widely accepted
 human-friendly alphabet is:
 
 $$
-\text{0123456789ABCDEFGHKMNPQRSTUVWXYZ
+\text{0123456789ABCDEFGHKMNPQRSTUVWXYZ}
 $$
 
 This gives us 32 symbols. If we choose an ID length of $L$ characters, the
