@@ -240,6 +240,22 @@ This approach allows us to use integer primary keys in the database while
 exposing pseudo-random, short, human-friendly IDs via encryption/decryption on
 the fly.
 
+### Validation
+
+The Python script [genids.py](./genids.py) can be used to ensure IDs uniqueness.
+It generates $2^{31}-1$ IDs and writes them to the standard output. It can be
+used for validation by executing the following commands:
+
+```bash
+python genids.py > ids
+wc -l ids
+cat ids | sort | uniq | wc -l
+```
+
+If the 2 last commands provide same numbers then there are no duplicates.
+
+*WARNING!* Can take significant time depending on the underlying hardware.
+
 ### Performance Considerations
 
 TODO
