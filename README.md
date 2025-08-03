@@ -164,8 +164,8 @@ Let's explore how RSA encryption can provide pseudo randomization for an
 integer sequence. Let $N$ be the maximum number of IDs the system will need,
 $L$ - is the ID length required to encode any ID in range $1..N$ in
 an alphabet of $X$ characters. Then, in notations of the [article](https://en.wikipedia.org/wiki/RSA_(cryptosystem)),
-if we chose $n = pq > N \wedge n \le A^L$, then the encryption function will be
-the bijective function $R: 1..n-1 \rightarrow 1..n-1$. The encryption function
+if we choose $n = pq > N \wedge n \le A^L$, then the encryption function will
+be the bijective function $R: 1..n-1 \rightarrow 1..n-1$. The encryption function
 obviously must be bijective in order to be able to decrypt clear text from any
 legal encrypted text.
 
@@ -189,7 +189,7 @@ crucial in order to ensure any number from the given interval $1 .. 2^{31}-1$
 can be encrypted. Then we chose $e$ so that $\gcd(e, \phi(n)) = 1$ and
 calculate $d$ so that $ed \equiv 1 mod \phi(n)$.
 
-The bellow Python example shows the full id generation logic.
+The Python example below shows the full id generation logic.
 
 ```python
 ALPHABET = "0123456789ABCDEFGHJKMNPQRSUVWXYZ"
@@ -261,7 +261,7 @@ If the 2 last commands provide same numbers then there are no duplicates.
 
 ### Performance Considerations
 
-The script [perf.py](./perf.py) mesures performance difference of UUID4
+The script [perf.py](./perf.py) measures performance difference of UUID4
 generation versus the approach proposed.
 
 On Apple M3 Pro it provides the following result:
@@ -275,9 +275,9 @@ On Apple M3 Pro it provides the following result:
 ```
 
 The speed of IDs generation depends on the value of the parameter $e$ the
-smaller it is the faster IDs generation happens. According to the result on a
-not so high values it takes same time as UUID4 generation, on the high values
-it takes 3 times more time to generate an ID.
+smaller it is the faster IDs generation happens. According to the result for
+moderately small values of $e$ it takes same time as UUID4 generation, on the
+high values it takes 3 times more time to generate an ID.
 
 
 ## References
