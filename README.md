@@ -161,12 +161,14 @@ Let's explore how RSA encryption can provide pseudo randomization for and
 integer sequence. Let's denote $N$ as the total amount of IDs that is considered
 as enough, $L$ - is the ID length required to encode any ID in range $1..N$ in
 an alphabet of $X$ characters. Then, in notations of the [article](https://en.wikipedia.org/wiki/RSA_(cryptosystem)),
-if we chose $n = pq > N \wedge n \le X^L$, then the encryption function will be
-the bijective function $R: 1..n-1 \rightarrow 1..n-1$.
+if we chose $n = pq > N \wedge n \le A^L$, then the encryption function will be
+the bijective function $R: 1..n-1 \rightarrow 1..n-1$. The encryption function
+obviously must be bijective in order to be able to decrypt clear text from any
+legal encrypted text.
 
-Let $encode$ will be the function that encodes a number from range $1..2^{31}-1$
-in the 32-characters alphabet defined above. Then the ID length in that alphabet
-is $7$. Let $encrypt$ will be the RSA-encryption function, $decode$, $decrypt$
+
+Let $encode$ will be the function that encodes a number from range $R$ in an
+alphabet A. Let $encrypt$ will be the RSA-encryption function, $decode$, $decrypt$
 will be the functions reverse to the functions $encode$, $encrypt$ respectively,
 $next() \rightarrow 1..N$ the function that produces the sequential numbers.
 
