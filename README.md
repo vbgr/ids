@@ -116,7 +116,7 @@ total number of unique IDs we can represent is:
 $$N=32^L$$
 
 Let’s examine how many characters we need in a 32-symbol alphabet to safely
-generate $K=1-^9$ random IDs without significant risk of collisions.
+generate $K=10^9$ random IDs without significant risk of collisions.
 
 | L     | P       |
 | ----- | ------- |
@@ -133,7 +133,7 @@ generate $K=1-^9$ random IDs without significant risk of collisions.
 | 15    | 0.0013% |
 
 
-As shown, to get below a 0.01% collision risk when generating $K={10}^{9}$ IDs,
+As shown, to get below a 0.01% collision risk when generating $K=10^9$ IDs,
 you need at least 15 characters. While secure and robust, this length may be
 inconvenient for users who need to type or read these IDs frequently.
 
