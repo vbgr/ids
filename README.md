@@ -166,7 +166,6 @@ the bijective function $R: 1..n-1 \rightarrow 1..n-1$. The encryption function
 obviously must be bijective in order to be able to decrypt clear text from any
 legal encrypted text.
 
-
 Let $encode$ will be the function that encodes a number from range $R$ in an
 alphabet A. Let $encrypt$ will be the RSA-encryption function, $decode$, $decrypt$
 will be the functions reverse to the functions $encode$, $encrypt$ respectively,
@@ -179,7 +178,7 @@ to be calculated: $decrypt(decode(id))$.
 ### Implementation
 
 If we consider a PostgreSQL integer sequence that produces primary keys in range
-$1 .. 2^31-1$ and alphabet of 32 symbols defined above, then the required ID
+$1 .. 2^{31}-1$ and alphabet of 32 symbols defined above, then the required ID
 length, as we have seen above most be $7$.
 
 
