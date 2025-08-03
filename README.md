@@ -232,7 +232,12 @@ encoded_id = encode(encrypt(next_id))
 decoded_id = decrypt(decode(encoded_id))
 ```
 
-NOTE: for 
+*Consequence 1* This approach allows to operate by integer primary key in
+database and expose in an API pseudo random short IDs.
+
+### Performance
+
+TODO
 
 
 ## References
