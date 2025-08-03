@@ -152,7 +152,8 @@ integer-based IDs need only 7 characters to represent the same number of records
 But how to make sequential IDs non predictable? One of the possible solution is
 to get next number from the sequence and encrypt it. Encryption function $e$ by
 it's nature must map $x \in X \rightarrow e(x) \in Y$ so that for the given
-$y=e(x)$ 
+$y=e(x)$ each $x \in X$ must have about equal probability to be a clear text
+for the given encrypted text $y$ (of course without knowing the private key).
 
 ## References
 
