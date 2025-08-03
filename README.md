@@ -106,9 +106,9 @@ To keep IDs readable and writable by humans, we restrict the character set to
 avoid visually confusing characters (e.g., O, 0, I, l, 1, J). A widely accepted
 human-friendly alphabet is:
 
-```
-0123456789ABCDEFGHKMNPQRSTUVWXYZ
-```
+$$
+0123456789ABCDEFGHKMNPQRSTUVWXYZ \tag{1}
+$$
 
 This gives us 32 symbols. If we choose an ID length of $L$ characters, the
 total number of unique IDs we can represent is:
@@ -175,6 +175,10 @@ $next() \rightarrow 1..N$ the function that produces the sequential numbers.
 Then ID generation algorithm is the following: $id = encode(encrypt(next()))$.
 In order to get the original value $v$ returned by function $next$ there needs
 to be calculated: $decrypt(decode(id))$.
+
+### Implementation
+
+If we consider a PostgreSQL integer sequence that produces primary keys, 
 
 
 ## References
