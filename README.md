@@ -255,8 +255,8 @@ Requirements:
 - 64GB of free disk space
 
 The Python script [genids.py](./genids.py) can be used to ensure IDs uniqueness.
-It generates $2^{31}-1$ IDs and writes them to the standard output. It can be
-used for validation by executing the following commands:
+It generates $2^{31}-2$ (we exclude 0 as well) IDs and writes them to the standard
+output. It can be used for validation by executing the following commands:
 
 ```bash
 mkdir -p data
