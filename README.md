@@ -252,7 +252,7 @@ Requirements:
 
 - python
 - duckdb
-- 50GB of free disk space
+- 64GB of free disk space
 
 The Python script [genids.py](./genids.py) can be used to ensure IDs uniqueness.
 It generates $2^{31}-1$ IDs and writes them to the standard output. It can be
