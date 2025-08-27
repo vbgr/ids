@@ -264,6 +264,8 @@ python genids.py > data/ids
 duckdb db
 ```
 
+In duckdb shell:
+
 ```duckdb
 -- Increase temp directory size limit
 PRAGMA max_temp_directory_size='30GiB';
