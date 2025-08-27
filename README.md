@@ -246,7 +246,7 @@ the fly.
 ### Validation
 
 *WARNING!* Can take significant (up to couple of hours) time depending on the
-underlying hardware.
+underlying hardware. On MacBook Pro M3 it takes about 1 hour.
 
 Requirements:
 
