@@ -266,7 +266,7 @@ duckdb db
 
 In duckdb shell:
 
-```duckdb
+```sql
 -- Increase temp directory size limit
 PRAGMA max_temp_directory_size='30GiB';
 -- Copy ids file into a duckdb table
